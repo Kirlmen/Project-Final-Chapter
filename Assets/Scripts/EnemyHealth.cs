@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float hitDamage)
     {
+        BroadcastMessage("OnDamageTaken");
         hitPoints -= hitDamage;
         Debug.Log(hitPoints);
 
