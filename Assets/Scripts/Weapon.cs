@@ -2,36 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Weapon : MonoBehaviour
 {
-
-    [SerializeField] Camera FPSCamera;
-    [SerializeField] float ak47Range = 75f;
-    [SerializeField] float ak47Damage = 12.5f;
+    [SerializeField] Camera FPCamera;
+    [SerializeField] float range = 100f;
+    [SerializeField] float damage = 30f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
+    [SerializeField] float timeBetweenShots = 0.5f;
 
-    private void Start()
+    bool canShoot = true;
+
+    private void OnEnable()
     {
-        ammoSlot = FindObjectOfType<Ammo>();
+        canShoot = true;
     }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0) && canShoot == true)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
-        if (ammoSlot.GetCurrentAmmo() > 0)
+        canShoot = false;
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
-            ammoSlot.ReduceAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
     }
 
     private void PlayMuzzleFlash()
@@ -42,20 +50,22 @@ public class Weapon : MonoBehaviour
     private void ProcessRaycast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, ak47Range))
+        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
-            Debug.Log("I hit thing thing: " + hit.transform.name);
-            CreateHitEffect(hit);
+            CreateHitImpact(hit);
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
-            if (target == null) { return; }
-            target.TakeDamage(ak47Damage);
+            if (target == null) return;
+            target.TakeDamage(damage);
         }
-        else { return; }
+        else
+        {
+            return;
+        }
     }
 
-    private void CreateHitEffect(RaycastHit hit)
+    private void CreateHitImpact(RaycastHit hit)
     {
-        GameObject impactGO = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impactGO, 1);
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, .1f);
     }
 }
