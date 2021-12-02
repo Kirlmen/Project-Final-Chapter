@@ -495,8 +495,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3430678117464834096}
-  - component: {fileID: 3469627848408613068}
-  - component: {fileID: 8290407219123129041}
   m_Layer: 0
   m_Name: AKM
   m_TagString: Untagged
@@ -555,44 +553,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.52, y: 179.632, z: -0.018}
---- !u!114 &3469627848408613068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857574638333489699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635f062c0c38a864a8ce07a5c57a62ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FPCamera: {fileID: 0}
-  range: 100
-  damage: 30
-  muzzleFlash: {fileID: 5545865954384183198}
-  hitEffect: {fileID: 2431141136670146573, guid: bafbe1bfc77f12b49bf6edccc4aa7c6c, type: 3}
-  ammoSlot: {fileID: 0}
-  ammoType: 0
-  timeBetweenShots: 0.1
---- !u!114 &8290407219123129041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857574638333489699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560fcc8a181633e45a32272435e0dd18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 0}
-  fpsController: {fileID: 0}
-  zoomedOutFOV: 60
-  zoomedInFOV: 30
-  zoomOutSensitivity: 2
-  zoomInSensitivity: 1
 --- !u!1 &2165595050871544494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,10 +3000,5 @@ PrefabInstance:
 --- !u!4 &5545865954370026204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 685827842658144559, guid: 01c10ee8cd2421d42ba9de2a2e5459ba, type: 3}
-  m_PrefabInstance: {fileID: 5004153918551124979}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5545865954384183198 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 685827842673349741, guid: 01c10ee8cd2421d42ba9de2a2e5459ba, type: 3}
   m_PrefabInstance: {fileID: 5004153918551124979}
   m_PrefabAsset: {fileID: 0}
