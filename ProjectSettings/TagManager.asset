@@ -18,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - LevelPart
   - Player
   - Weapon
+  - LevelPart
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 1666647273
+    locked: 0
+  - name: LevelPart
+    uniqueID: 514040989
     locked: 0
