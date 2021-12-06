@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
         if (hitPoints <= 0f)
         {
             Die();
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 

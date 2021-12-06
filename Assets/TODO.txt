@@ -1,8 +1,0 @@
-1-Create Map
-2-Ammo Pickup Assets
-3-Flashlight
-4-UI- Mermi, Can, Zombi canı GUI(belki)
-5- Silah Seslerini düzeltmem lazım. Yenilerine bakabilirim.
-6-Kontroller. Tuning gerekiyor.
-7- Interact = mekan içindeki ışıkları ve 1 kapı düşünüyorum
-9- Ana mekanın kapısını kitli yapacağım. Sadece yakına yerleştireceğim bir evdeki anahtar ile açılacak. diğer kapılar ise bu kitli kapıya doğru kırık olacak ki sanki zombiler kaçmayı denemişler ama başaramamışlar kapı kitli olduğu için gibi gözüksün.

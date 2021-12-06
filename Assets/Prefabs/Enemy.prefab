@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 453268501}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Dummie
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be5ca2b86abac499581b95200d372f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  aggroRange: 15
+  aggroRange: 10
   turnSpeed: 5
 --- !u!114 &453268500
 MonoBehaviour:

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
 
     GameObject hurtEffect;
-
     EnemyAttack enemyAttack;
     DeathHandler deathHandler;
     GunInventory gunInventory;
+
+
+    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] Image healthRegenImage;
     [SerializeField] private Image bloodImage = null;
     [SerializeField] private float hurtTimer = 1f;
 
@@ -35,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        DisplayHealth();
+        DisplayCrossHealth();
+
         if (startCooldown)
         {
             healCooldown = -Time.deltaTime;
@@ -47,10 +54,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (canRegen)
         {
+
             if (currentHealth <= maxPlayerHealth - 0.01)
             {
                 currentHealth += Time.deltaTime * regenRate;
                 UpdateHealth();
+
             }
             else
             {
@@ -77,6 +86,24 @@ public class PlayerHealth : MonoBehaviour
             gunInventory.DeadMethod();
             deathHandler.HandleDeath();
         }
+    }
+
+    void DisplayHealth()
+    {
+        healthText.text = Mathf.RoundToInt(currentHealth).ToString();
+    }
+
+    void DisplayCrossHealth()
+    {
+        if (canRegen == true)
+        {
+            healthRegenImage.enabled = true;
+        }
+        else
+        {
+            healthRegenImage.enabled = false;
+        }
+
     }
 
     void UpdateHealth()
